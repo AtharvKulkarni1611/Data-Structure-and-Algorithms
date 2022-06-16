@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) //void means no return type {
+
+        int low = 0; 
+        int high = nums.size() - 1;
+        int mid = 0 ;
+         
+        //Dutch National Flag Algorithm is used
+        //All the numbers from [0....low-1] are 0's
+        //All the numbers from[high + 1....n]are 2's
+        
+        while(mid <= high){
+            switch(nums[mid]){
+                //Mid pointer is pointing to 0
+                case 0:
+                    swap(nums[low ++], nums[mid++]);
+                    break;
+                //Mid pointer is pointing to 1
+                case 1:
+                    mid++;
+                    break;
+                    
+                 //Mid pointer is pointing to 2   
+                case 2:
+                    swap(nums[mid], nums[high--]);
+                    break;
+            }
+        }
+       
+    }
+};
